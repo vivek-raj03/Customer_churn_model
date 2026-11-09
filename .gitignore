@@ -1,0 +1,41 @@
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python cache / build files
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Data (can be regenerated or may contain private customer info)
+data/*.csv
+!data/.gitkeep
+
+# Trained model artifacts (regenerate with `python train.py`)
+artifacts/*.joblib
+artifacts/*.pkl
+artifacts/metadata.json
+!artifacts/.gitkeep
+
+# Environment variables / secrets
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
