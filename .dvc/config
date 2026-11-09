@@ -1,0 +1,6 @@
+[core]
+    remote = vivek-practice
+['remote "vivek-practice"']
+    url = s3://vivek-churn-model-practice/churn
+    region = us-east-1
+    profile = dvc-practice

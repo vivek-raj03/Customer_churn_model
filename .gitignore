@@ -10,15 +10,10 @@ __pycache__/
 build/
 dist/
 
-# Data (can be regenerated or may contain private customer info)
-data/*.csv
-!data/.gitkeep
-
 # Trained model artifacts (regenerate with `python train.py`)
 artifacts/*.joblib
 artifacts/*.pkl
 artifacts/metadata.json
-!artifacts/.gitkeep
 
 # Environment variables / secrets
 .env
