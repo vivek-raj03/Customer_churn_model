@@ -1,0 +1,50 @@
+# name: ml-pipeline
+
+# on:
+#   push:
+#     branches: [main]
+#   workflow_dispatch:      
+
+# env:
+#   AWS_REGION: us-east-1 
+
+# jobs:
+#   train-and-upload:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Clone the code
+#         uses: actions/checkout@v4
+
+#       - name: Install Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.12"
+#           cache: pip
+
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
+
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v4
+#         with:
+#           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#           aws-region: ${{ env.AWS_REGION }}
+
+#       - name: Generate data
+#         run: python generate_data.py
+
+#       - name: Train model
+#         run: python train.py
+
+#       - name: Upload model to S3
+#         run: |
+#           S3_PATH="s3://${{ secrets.S3_BUCKET }}/models/churn"
+#           aws s3 cp artifacts/churn_model.joblib "$S3_PATH/${GITHUB_SHA}/model.joblib"
+#           aws s3 cp artifacts/metadata.json      "$S3_PATH/${GITHUB_SHA}/metadata.json"
+#           aws s3 cp artifacts/churn_model.joblib "$S3_PATH/latest/model.joblib"
+#           aws s3 cp artifacts/metadata.json      "$S3_PATH/latest/metadata.json"
+
+#       - name: Show what was uploaded
+#         run: aws s3 ls "s3://${{ secrets.S3_BUCKET }}/models/churn/" --recursive
