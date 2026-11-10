@@ -1,1 +1,7 @@
-# This is empty because this was for Practice and i have removed the remote after the Demo. 
+[core]
+    remote = floci
+['remote "floci"']
+    url = s3://dvc-practice/churn
+    endpointurl = http://localhost:4566
+    region = us-east-1
+    profile = floci
